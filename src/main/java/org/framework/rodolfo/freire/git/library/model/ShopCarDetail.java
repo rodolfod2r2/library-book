@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Date;
+import javax.persistence.*;
 import java.util.List;
 
 @Slf4j
@@ -14,15 +14,20 @@ import java.util.List;
 @AllArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "shop_car_detail")
 public class ShopCarDetail {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "shop_detail_id")
     private long shopCarDetailId;
+    @Column(name = "shop_detail_code")
     private long shopCarDetailCode;
-    private Date shopCarDetailDate;
-    private TypeOperation shopCarType;
-    private Customer shopCarCustomer;
-    private Employee shopCarEmployee;
-    private List<ShopCarDetail> shopCarDetailList;
+    @ManyToMany
+    @JoinColumn(name = "shop_car_detail_list_fk")
+    private List<Book> books;
+    @Column(name = "shop_detail_status")
     private boolean shopCarStatus;
 
 }
