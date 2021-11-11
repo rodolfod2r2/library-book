@@ -1,17 +1,37 @@
 package org.framework.rodolfo.freire.git.library.service;
 
-import org.framework.rodolfo.freire.git.library.component.SearchBook;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.framework.rodolfo.freire.git.library.model.Book;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.Optional;
+
 @Service
-public class BookService {
+public class BookService implements GenericInterfaceService<Book> {
 
-    @Autowired
-    SearchBook search;
 
-    public String findBookByRack() {
-        return search.findBookByRack();
+    @Override
+    public List<Book> findAll() {
+        return null;
     }
 
+    @Override
+    public Optional<Book> findById(Long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public Book save(Book book) {
+        return null;
+    }
+
+    @Override
+    public Book update(Book book) {
+        return null;
+    }
+
+    @Override
+    public void delete(Long id) {
+
+    }
 }
