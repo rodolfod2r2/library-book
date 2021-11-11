@@ -1,21 +1,43 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.service.BookService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.framework.rodolfo.freire.git.library.model.Book;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/book")
-public class BookController {
+public class BookController implements GenericInterfaceController<Book> {
 
-    @Autowired
-    BookService service;
-
-    @GetMapping("/rack")
-    public String rack() {
-        return service.findBookByRack();
+    @GetMapping
+    @Override
+    public ResponseEntity<List<Book>> findAll() {
+        return null;
     }
 
+    @GetMapping("/{id}")
+    @Override
+    public ResponseEntity<Optional<Book>> findById(@PathVariable Long id) {
+        return null;
+    }
+
+    @PostMapping
+    @Override
+    public ResponseEntity<Book> save(@RequestBody Book book) {
+        return null;
+    }
+
+    @PutMapping("/{id}")
+    @Override
+    public ResponseEntity<Book> update(@RequestBody Book book, @PathVariable Long id) {
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    @Override
+    public void delete(@PathVariable Long id) {
+
+    }
 }

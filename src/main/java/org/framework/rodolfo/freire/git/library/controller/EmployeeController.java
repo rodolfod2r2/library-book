@@ -1,22 +1,44 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.service.EmployeeService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.framework.rodolfo.freire.git.library.model.Employee;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/employee")
-public class EmployeeController {
+public class EmployeeController implements GenericInterfaceController<Employee> {
 
-    @Autowired
-    EmployeeService service;
-
-    @GetMapping("/address")
-    public String address () {
-        return service.findAddress();
+    @GetMapping
+    @Override
+    public ResponseEntity<List<Employee>> findAll() {
+        return null;
     }
 
+    @GetMapping("/{id}")
+    @Override
+    public ResponseEntity<Optional<Employee>> findById(@PathVariable Long id) {
+        return null;
+    }
+
+    @PostMapping
+    @Override
+    public ResponseEntity<Employee> save(@RequestBody Employee employee) {
+        return null;
+    }
+
+    @PutMapping("/{id}")
+    @Override
+    public ResponseEntity<Employee> update(@RequestBody Employee employee, @PathVariable Long id) {
+        return null;
+    }
+
+    @DeleteMapping("/{id}")
+    @Override
+    public void delete(@PathVariable Long id) {
+
+    }
 
 }
