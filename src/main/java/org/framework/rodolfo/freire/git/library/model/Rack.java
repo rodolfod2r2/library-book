@@ -26,6 +26,8 @@ public class Rack {
     @Column(name = "rack_shelf")
     private int numberShelf;
     @Column(name = "rack_book")
+    @OneToOne
+    @JoinColumn(name = "rack_book_fk")
     private Book book;
 
 }
