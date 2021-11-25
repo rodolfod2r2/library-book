@@ -5,10 +5,5 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class SearchAddress {
-
-    public String findAddressByPostalCode() {
-        return "58000000";
-    }
-
+public class RegistryPublishingCompany {
 }

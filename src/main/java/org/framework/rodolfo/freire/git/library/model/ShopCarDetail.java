@@ -25,7 +25,7 @@ public class ShopCarDetail {
     @Column(name = "shop_detail_code")
     private long shopCarDetailCode;
     @ManyToMany
-    @JoinColumn(name = "shop_car_detail_list_fk")
+    @JoinColumn(name = "shop_car_books_fk")
     private List<Book> books;
     @Column(name = "shop_detail_status")
     private boolean shopCarStatus;

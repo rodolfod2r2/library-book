@@ -26,8 +26,10 @@ public class ShopCar {
     @Column(name = "shop_car_code")
     private long shopCarCode;
     @Column(name = "shop_car_date")
+    @Temporal(TemporalType.DATE)
     private Date shopCarDate;
     @Column(name = "shop_car_type")
+    @Enumerated(EnumType.STRING)
     private TypeOperation shopCarType;
     @OneToOne
     @JoinColumn(name = "shop_car_customer_fk")

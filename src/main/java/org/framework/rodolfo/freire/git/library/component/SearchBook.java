@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class SearchBook {
 
-    public String findBookByRack(){
+    public String findBookByRack() {
         return "Rack 1L";
     }
 

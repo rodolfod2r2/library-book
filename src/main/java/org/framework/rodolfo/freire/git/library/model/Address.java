@@ -19,29 +19,29 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "address_id")
+    @Column(name = "id")
     private long addressId;
     @Column(name = "address_type")
     private String addressType;
-    @Column(name = "address_postal_code")
+    @Column(name = "postal_code")
     private String postalCode;
-    @Column(name = "address_street")
+    @Column(name = "street")
     private String streetLine1;
-    @Column(name = "address_number")
+    @Column(name = "number")
     private String streetLine2;
-    @Column(name = "address_district")
+    @Column(name = "district")
     private String streetLine3;
-    @Column(name = "address_adjunct")
+    @Column(name = "adjunct")
     private String streetLine4;
-    @Column(name = "address_city")
+    @Column(name = "city")
     private String city;
-    @Column(name = "address_state")
+    @Column(name = "state")
     private String state;
-    @Column(name = "address_country")
+    @Column(name = "country")
     private String country;
-    @Column(name = "address_preferred")
+    @Column(name = "preferred")
     private boolean addressPreferred;
-    @Column(name = "address_status")
+    @Column(name = "status")
     private boolean addressStatus;
 
 }

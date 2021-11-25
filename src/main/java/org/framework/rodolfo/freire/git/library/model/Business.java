@@ -17,11 +17,17 @@ import javax.persistence.Table;
 @Getter
 @Setter
 @Entity
-@Table(name = "customer")
-public class Customer extends Person {
+@Table(name = "business")
+public class Business extends Person {
 
+    @Column(name = "corporate_name")
+    private String corporateName;
+    @Column(name = "state_registration")
+    private String stateRegistration;
+    @Column(name = "contact")
+    private String contact;
+    @Column(name = "occupation")
+    private String occupation;
 
-    @Column(name = "customer_gender")
-    private String customerGender;
 
 }

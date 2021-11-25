@@ -21,19 +21,24 @@ public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "book_id")
-    private long bookId;
-    @Column(name = "book_name")
-    private String bookName;
-    @Column(name = "book_author")
-    private List<String> bookAuthor;
-    @Column(name = "book_category")
-    private List<BookCategory> bookCategory;
-    @Column(name = "book_edition")
-    private String bookEdition;
-    @Column(name = "book_quantity")
-    private int bookQuantity;
-    @Column(name = "book_category")
-    private boolean bookStatus;
+    @Column(name = "id")
+    private long id;
+    @Column(name = "name")
+    private String name;
+    @ManyToMany
+    @JoinColumn(name = "authors_fk")
+    private List<Author> authors;
+    @Column(name = "category")
+    @Enumerated(EnumType.STRING)
+    private BookCategory bookCategory;
+    @Column(name = "edition")
+    private String edition;
+    @ManyToOne
+    @JoinColumn(name = "publish_company_fk")
+    private PublishingCompany publishingCompany;
+    @Column(name = "quantity")
+    private int quantity;
+    @Column(name = "status")
+    private boolean status;
 
 }

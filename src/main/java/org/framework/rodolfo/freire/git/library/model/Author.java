@@ -7,7 +7,6 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Slf4j
 @NoArgsConstructor
@@ -15,20 +14,13 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "rack")
-public class Rack {
+@Table(name = "author")
+public class Author {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "rack")
-    private int rack;
-    @Column(name = "shelf")
-    private int shelf;
-    @Column(name = "book")
-    @ManyToMany
-    @JoinColumn(name = "book_fk")
-    private List<Book> book;
-
+    @Column(name = "name")
+    private String name;
 }

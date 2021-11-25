@@ -19,15 +19,15 @@ public class Phone {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "phone_id")
+    @Column(name = "id")
     private long phoneId;
     @Column(name = "phone_type")
     private String phoneType;
     @Column(name = "phone_number")
     private String phoneNumber;
-    @Column(name = "phone_preferred")
+    @Column(name = "preferred")
     private boolean phonePreferred;
-    @Column(name = "phone_status")
+    @Column(name = "status")
     private boolean phoneStatus;
 
 }

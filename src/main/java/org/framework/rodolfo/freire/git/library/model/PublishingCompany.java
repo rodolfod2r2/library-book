@@ -15,20 +15,22 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
-@Table(name = "rack")
-public class Rack {
+@Table(name = "publishing_company")
+public class PublishingCompany {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "rack")
-    private int rack;
-    @Column(name = "shelf")
-    private int shelf;
-    @Column(name = "book")
+    @Column(name = "name")
+    private String name;
     @ManyToMany
-    @JoinColumn(name = "book_fk")
-    private List<Book> book;
+    @JoinColumn(name = "addresses_fk")
+    private List<Address> addresses;
+    @ManyToMany
+    @JoinColumn(name = "phones_fk")
+    private List<Phone> phones;
+    @Column(name = "email")
+    private String email;
 
 }
