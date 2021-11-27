@@ -45,7 +45,8 @@ public abstract class Person {
     @Column(name = "password")
     private String password;
     @Column(name = "access_level")
-    private String accessLevel;
+    @Enumerated(EnumType.STRING)
+    private AccessLevel accessLevel;
     @Column(name = "status")
     private boolean status;
 }
