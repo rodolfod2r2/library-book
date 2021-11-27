@@ -20,8 +20,7 @@ import javax.persistence.Table;
 @Table(name = "customer")
 public class Customer extends Person {
 
-
-    @Column(name = "customer_gender")
-    private String customerGender;
+    @Column(name = "gender")
+    private String gender;
 
 }

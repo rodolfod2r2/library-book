@@ -21,7 +21,11 @@ public class Document {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-    @Column(name = "description")
-    private String description;
+    @Column(name = "document_type")
+    @Enumerated(EnumType.STRING)
+    private DocumentType documentType;
+    @Column(name = "document_number")
+    private String documentNumber;
+
 
 }

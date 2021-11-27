@@ -29,8 +29,6 @@ public abstract class Person {
     @ManyToMany
     @JoinColumn(name = "documents_fk")
     private List<Document> documents;
-    @Column(name = "person_type")
-    private String personType;
     @Column(name = "birthday")
     private Date birthday;
     @Column(name = "relationship_date")

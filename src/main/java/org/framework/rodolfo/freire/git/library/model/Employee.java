@@ -19,12 +19,12 @@ import java.math.BigDecimal;
 public class Employee extends Person {
 
     @Column(name = "gender")
-    private String employeeGender;
+    private String gender;
     @Column(name = "department")
     @Enumerated(EnumType.STRING)
-    private Department employeeDepartment;
+    private Department department;
     @Column(name = "occupation")
-    private String employeeOccupation;
+    private String occupation;
     @Column(name = "income")
     private BigDecimal employeeIncome;
 

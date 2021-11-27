@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+import java.util.Date;
 
 
 @Slf4j
@@ -22,8 +23,12 @@ public class Business extends Person {
 
     @Column(name = "corporate_name")
     private String corporateName;
-    @Column(name = "state_registration")
-    private String stateRegistration;
+    @Column(name = "foundation_date")
+    private Date foundationDate;
+    @Column(name = "economic_activity")
+    private String economicActivity;
+    @Column(name = "number_employees")
+    private Long numberOfEmployees;
     @Column(name = "contact")
     private String contact;
     @Column(name = "occupation")
