@@ -21,8 +21,8 @@ public class ShopCar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "shop_car_id")
-    private long shopCarId;
+    @Column(name = "id")
+    private long id;
     @Column(name = "shop_car_code")
     private long shopCarCode;
     @Column(name = "shop_car_date")

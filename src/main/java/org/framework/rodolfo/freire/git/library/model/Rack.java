@@ -26,7 +26,6 @@ public class Rack {
     private int rack;
     @Column(name = "shelf")
     private int shelf;
-    @Column(name = "book")
     @ManyToMany
     @JoinColumn(name = "book_fk")
     private List<Book> book;

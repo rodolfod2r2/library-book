@@ -5,8 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.model.BookCategory;
 
-import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @AllArgsConstructor
@@ -15,8 +16,13 @@ import java.util.Date;
 @Setter
 public class BookDto {
 
-    private Long id;
+    private long id;
     private String name;
-    private Date birthday;
+    private List<AuthorDto> authors;
+    private BookCategory bookCategory;
+    private String edition;
+    private PublishingCompanyDto publishingCompany;
+    private int quantity;
+    private boolean status;
 
 }

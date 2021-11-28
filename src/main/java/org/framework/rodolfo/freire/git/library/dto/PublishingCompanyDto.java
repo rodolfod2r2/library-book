@@ -5,8 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.model.Address;
+import org.framework.rodolfo.freire.git.library.model.Phone;
 
-import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @AllArgsConstructor
@@ -15,8 +17,10 @@ import java.util.Date;
 @Setter
 public class PublishingCompanyDto {
 
-    private Long id;
+    private long id;
     private String name;
-    private Date birthday;
+    private List<Address> addresses;
+    private List<Phone> phones;
+    private String email;
 
 }

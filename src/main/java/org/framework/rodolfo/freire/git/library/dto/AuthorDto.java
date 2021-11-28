@@ -6,8 +6,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.Date;
-
 @Slf4j
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +15,5 @@ public class AuthorDto {
 
     private Long id;
     private String name;
-    private Date birthday;
 
 }

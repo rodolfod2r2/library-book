@@ -5,8 +5,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.model.Book;
 
-import java.util.Date;
+import java.util.List;
 
 @Slf4j
 @AllArgsConstructor
@@ -15,8 +16,9 @@ import java.util.Date;
 @Setter
 public class RackDto {
 
-    private Long id;
-    private String name;
-    private Date birthday;
+    private long id;
+    private int rack;
+    private int shelf;
+    private List<Book> book;
 
 }
