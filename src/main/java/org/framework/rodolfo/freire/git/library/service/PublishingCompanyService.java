@@ -1,33 +1,47 @@
 package org.framework.rodolfo.freire.git.library.service;
 
+import org.framework.rodolfo.freire.git.library.converter.PatternConverter;
+import org.framework.rodolfo.freire.git.library.dto.PublishingCompanyDto;
 import org.framework.rodolfo.freire.git.library.model.PublishingCompany;
+import org.framework.rodolfo.freire.git.library.repository.PublishingCompanyRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class PublishingCompanyService implements GenericInterfaceService<PublishingCompany> {
+public class PublishingCompanyService extends PatternConverter<PublishingCompany, PublishingCompanyDto> implements GenericInterfaceService<PublishingCompanyDto> {
+
+    private final PublishingCompanyRepository repository;
+
+    public PublishingCompanyService(PublishingCompanyRepository repository) {
+        this.repository = repository;
+    }
 
 
     @Override
-    public List<PublishingCompany> findAll() {
-        return null;
+    public List<PublishingCompanyDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(obj -> convertEntityDto(obj, PublishingCompanyDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Optional<PublishingCompany> findById(Long id) {
-        return Optional.empty();
+    public PublishingCompanyDto getById(Long id) {
+        return convertEntityDto(repository.getById(id), PublishingCompanyDto.class);
     }
 
     @Override
-    public PublishingCompany save(PublishingCompany company) {
-        return null;
+    public PublishingCompanyDto save(PublishingCompanyDto publishingCompanyDto) {
+        repository.save(convertDtoEntity(PublishingCompany.class, publishingCompanyDto));
+        return publishingCompanyDto;
     }
 
     @Override
-    public PublishingCompany update(PublishingCompany company) {
-        return null;
+    public PublishingCompanyDto update(PublishingCompanyDto publishingCompanyDto) {
+        repository.save(convertDtoEntity(PublishingCompany.class, publishingCompanyDto));
+        return publishingCompanyDto;
     }
 
     @Override

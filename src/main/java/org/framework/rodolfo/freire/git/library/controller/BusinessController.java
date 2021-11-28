@@ -1,38 +1,45 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.model.Business;
+import org.framework.rodolfo.freire.git.library.dto.BusinessDto;
+import org.framework.rodolfo.freire.git.library.service.BusinessService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/business")
-public class BusinessController implements GenericInterfaceController<Business> {
+public class BusinessController implements GenericInterfaceController<BusinessDto> {
+
+    private final BusinessService service;
+
+    public BusinessController(BusinessService service) {
+        this.service = service;
+    }
 
     @GetMapping
     @Override
-    public ResponseEntity<List<Business>> findAll() {
-        return null;
+    public ResponseEntity<List<BusinessDto>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
     @Override
-    public ResponseEntity<Optional<Business>> findById(@PathVariable Long id) {
-        return null;
+    public ResponseEntity<BusinessDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.FOUND);
     }
 
     @PostMapping
     @Override
-    public ResponseEntity<Business> save(@RequestBody Business business) {
-        return null;
+    public ResponseEntity<BusinessDto> save(@RequestBody BusinessDto businessDto) {
+        return new ResponseEntity<>(service.save(businessDto), HttpStatus.FOUND);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<Business> update(@RequestBody Business business, @PathVariable Long id) {
-        return null;
+    public ResponseEntity<BusinessDto> update(@RequestBody BusinessDto businessDto, @PathVariable Long id) {
+        return new ResponseEntity<>(service.save(businessDto), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/{id}")

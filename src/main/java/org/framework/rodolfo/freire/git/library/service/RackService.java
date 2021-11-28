@@ -1,32 +1,46 @@
 package org.framework.rodolfo.freire.git.library.service;
 
+import org.framework.rodolfo.freire.git.library.converter.PatternConverter;
+import org.framework.rodolfo.freire.git.library.dto.RackDto;
 import org.framework.rodolfo.freire.git.library.model.Rack;
+import org.framework.rodolfo.freire.git.library.repository.RackRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class RackService implements GenericInterfaceService<Rack> {
+public class RackService extends PatternConverter<Rack, RackDto> implements GenericInterfaceService<RackDto> {
 
-    @Override
-    public List<Rack> findAll() {
-        return null;
+    private final RackRepository repository;
+
+    public RackService(RackRepository repository) {
+        this.repository = repository;
     }
 
     @Override
-    public Optional<Rack> findById(Long id) {
-        return Optional.empty();
+    public List<RackDto> findAll() {
+        return repository.findAll()
+                .stream()
+                .map(obj -> convertEntityDto(obj, RackDto.class))
+                .collect(Collectors.toList());
     }
 
     @Override
-    public Rack save(Rack rack) {
-        return null;
+    public RackDto getById(Long id) {
+        return convertEntityDto(repository.getById(id), RackDto.class);
     }
 
     @Override
-    public Rack update(Rack rack) {
-        return null;
+    public RackDto save(RackDto rackDto) {
+        repository.save(convertDtoEntity(Rack.class, rackDto));
+        return rackDto;
+    }
+
+    @Override
+    public RackDto update(RackDto rackDto) {
+        repository.save(convertDtoEntity(Rack.class, rackDto));
+        return rackDto;
     }
 
     @Override

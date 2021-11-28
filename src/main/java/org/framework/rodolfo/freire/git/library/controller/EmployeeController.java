@@ -1,38 +1,45 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.model.Employee;
+import org.framework.rodolfo.freire.git.library.dto.EmployeeDto;
+import org.framework.rodolfo.freire.git.library.service.EmployeeService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/employee")
-public class EmployeeController implements GenericInterfaceController<Employee> {
+public class EmployeeController implements GenericInterfaceController<EmployeeDto> {
+
+    private final EmployeeService service;
+
+    public EmployeeController(EmployeeService service) {
+        this.service = service;
+    }
 
     @GetMapping
     @Override
-    public ResponseEntity<List<Employee>> findAll() {
-        return null;
+    public ResponseEntity<List<EmployeeDto>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
     @Override
-    public ResponseEntity<Optional<Employee>> findById(@PathVariable Long id) {
-        return null;
+    public ResponseEntity<EmployeeDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.FOUND);
     }
 
     @PostMapping
     @Override
-    public ResponseEntity<Employee> save(@RequestBody Employee employee) {
-        return null;
+    public ResponseEntity<EmployeeDto> save(@RequestBody EmployeeDto employeeDto) {
+        return new ResponseEntity<>(service.save(employeeDto), HttpStatus.FOUND);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<Employee> update(@RequestBody Employee employee, @PathVariable Long id) {
-        return null;
+    public ResponseEntity<EmployeeDto> update(@RequestBody EmployeeDto employeeDto, @PathVariable Long id) {
+        return new ResponseEntity<>(service.save(employeeDto), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/{id}")

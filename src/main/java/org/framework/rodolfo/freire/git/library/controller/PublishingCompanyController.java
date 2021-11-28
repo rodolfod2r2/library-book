@@ -1,38 +1,45 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.model.PublishingCompany;
+import org.framework.rodolfo.freire.git.library.dto.PublishingCompanyDto;
+import org.framework.rodolfo.freire.git.library.service.PublishingCompanyService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/company")
-public class PublishingCompanyController implements GenericInterfaceController<PublishingCompany> {
+public class PublishingCompanyController implements GenericInterfaceController<PublishingCompanyDto> {
+
+    private final PublishingCompanyService service;
+
+    public PublishingCompanyController(PublishingCompanyService service) {
+        this.service = service;
+    }
 
     @GetMapping
     @Override
-    public ResponseEntity<List<PublishingCompany>> findAll() {
-        return null;
+    public ResponseEntity<List<PublishingCompanyDto>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
     @Override
-    public ResponseEntity<Optional<PublishingCompany>> findById(@PathVariable Long id) {
-        return null;
+    public ResponseEntity<PublishingCompanyDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.FOUND);
     }
 
     @PostMapping
     @Override
-    public ResponseEntity<PublishingCompany> save(@RequestBody PublishingCompany company) {
-        return null;
+    public ResponseEntity<PublishingCompanyDto> save(@RequestBody PublishingCompanyDto companyDto) {
+        return new ResponseEntity<>(service.save(companyDto), HttpStatus.FOUND);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<PublishingCompany> update(@RequestBody PublishingCompany company, @PathVariable Long id) {
-        return null;
+    public ResponseEntity<PublishingCompanyDto> update(@RequestBody PublishingCompanyDto companyDto, @PathVariable Long id) {
+        return new ResponseEntity<>(service.save(companyDto), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/{id}")

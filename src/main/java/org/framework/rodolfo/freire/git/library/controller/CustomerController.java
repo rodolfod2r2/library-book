@@ -1,38 +1,47 @@
 package org.framework.rodolfo.freire.git.library.controller;
 
-import org.framework.rodolfo.freire.git.library.model.Customer;
+import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.dto.CustomerDto;
+import org.framework.rodolfo.freire.git.library.service.CustomerService;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
+@Slf4j
 @RestController
 @RequestMapping("/customer")
-public class CustomerController implements GenericInterfaceController<Customer> {
+public class CustomerController implements GenericInterfaceController<CustomerDto> {
+
+    final
+    CustomerService service;
+
+    public CustomerController(CustomerService service) {
+        this.service = service;
+    }
 
     @GetMapping
     @Override
-    public ResponseEntity<List<Customer>> findAll() {
-        return null;
+    public ResponseEntity<List<CustomerDto>> findAll() {
+        return new ResponseEntity<>(service.findAll(), HttpStatus.FOUND);
     }
 
     @GetMapping("/{id}")
-    @Override
-    public ResponseEntity<Optional<Customer>> findById(@PathVariable Long id) {
-        return null;
+    public ResponseEntity<CustomerDto> getById(@PathVariable Long id) {
+        return new ResponseEntity<>(service.getById(id), HttpStatus.FOUND);
     }
 
     @PostMapping
     @Override
-    public ResponseEntity<Customer> save(@RequestBody Customer customer) {
-        return null;
+    public ResponseEntity<CustomerDto> save(@RequestBody CustomerDto customerDto) {
+        return new ResponseEntity<>(service.save(customerDto), HttpStatus.FOUND);
     }
 
     @PutMapping("/{id}")
     @Override
-    public ResponseEntity<Customer> update(@RequestBody Customer customer, @PathVariable Long id) {
-        return null;
+    public ResponseEntity<CustomerDto> update(@RequestBody CustomerDto customerDto, @PathVariable Long id) {
+        return new ResponseEntity<>(service.save(customerDto), HttpStatus.FOUND);
     }
 
     @DeleteMapping("/{id}")
