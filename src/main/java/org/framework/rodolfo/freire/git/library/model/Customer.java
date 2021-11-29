@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -20,7 +20,9 @@ import javax.persistence.Table;
 @Table(name = "customer")
 public class Customer extends Person {
 
-    @Column(name = "gender")
-    private String gender;
+    @OneToOne
+    private LegalPerson legalPerson;
+    @OneToOne
+    private PhysicalPerson physicalPerson;
 
 }

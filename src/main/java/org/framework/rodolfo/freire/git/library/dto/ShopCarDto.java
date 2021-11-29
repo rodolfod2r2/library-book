@@ -22,7 +22,7 @@ public class ShopCarDto {
     private long shopCarCode;
     private Date shopCarDate;
     private TypeOperation shopCarType;
-    private CustomerDto saleCustomer;
+    private PhysicalPersonDto saleCustomer;
     private EmployeeDto saleEmployee;
     private List<ShopCarDetail> saleDetailList;
     private boolean saleStatus;

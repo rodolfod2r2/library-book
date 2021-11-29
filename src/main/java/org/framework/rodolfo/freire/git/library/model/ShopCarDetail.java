@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.model.product.Book;
 
 import javax.persistence.*;
 import java.util.List;
@@ -24,7 +25,7 @@ public class ShopCarDetail {
     private long shopCarDetailId;
     @Column(name = "shop_detail_code")
     private long shopCarDetailCode;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "shop_car_books_fk")
     private List<Book> books;
     @Column(name = "shop_detail_status")

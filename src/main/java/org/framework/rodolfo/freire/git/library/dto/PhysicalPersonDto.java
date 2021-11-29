@@ -18,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @Getter
 @Setter
-public class BusinessDto {
+public class PhysicalPersonDto {
 
     private long id;
     private long codeNumber;

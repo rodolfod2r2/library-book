@@ -1,14 +1,17 @@
-package org.framework.rodolfo.freire.git.library.model;
+package org.framework.rodolfo.freire.git.library.model.product;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.framework.rodolfo.freire.git.library.model.Author;
+import org.framework.rodolfo.freire.git.library.model.BookCategory;
+import org.framework.rodolfo.freire.git.library.model.PublishingCompany;
 
 import javax.persistence.*;
 import java.util.List;
-
 
 @Slf4j
 @NoArgsConstructor
@@ -17,7 +20,7 @@ import java.util.List;
 @Setter
 @Entity
 @Table(name = "book")
-public class Book {
+public class Book extends Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

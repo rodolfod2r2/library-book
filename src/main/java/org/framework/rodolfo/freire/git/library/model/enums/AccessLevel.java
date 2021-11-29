@@ -1,4 +1,4 @@
-package org.framework.rodolfo.freire.git.library.model;
+package org.framework.rodolfo.freire.git.library.model.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,4 +19,5 @@ public enum AccessLevel {
     BUSINESS("BUSINESS");
 
     private String description;
+
 }

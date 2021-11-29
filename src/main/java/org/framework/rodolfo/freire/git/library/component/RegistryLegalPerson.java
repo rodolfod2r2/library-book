@@ -5,5 +5,5 @@ import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component
-public class RegistryBusiness {
+public class RegistryLegalPerson {
 }

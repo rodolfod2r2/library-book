@@ -16,12 +16,17 @@ import java.math.BigDecimal;
 @Setter
 @Entity
 @Table(name = "employee")
-public class Employee extends Person {
+public class Employee {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "gender")
     private String gender;
     @Column(name = "department")
-    @Enumerated(EnumType.STRING)
+    @OneToOne
     private Department department;
     @Column(name = "occupation")
     private String occupation;

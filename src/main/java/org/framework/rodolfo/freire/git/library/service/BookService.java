@@ -2,7 +2,7 @@ package org.framework.rodolfo.freire.git.library.service;
 
 import org.framework.rodolfo.freire.git.library.converter.PatternConverter;
 import org.framework.rodolfo.freire.git.library.dto.BookDto;
-import org.framework.rodolfo.freire.git.library.model.Book;
+import org.framework.rodolfo.freire.git.library.model.product.Book;
 import org.framework.rodolfo.freire.git.library.repository.BookRepository;
 import org.springframework.stereotype.Service;
 
