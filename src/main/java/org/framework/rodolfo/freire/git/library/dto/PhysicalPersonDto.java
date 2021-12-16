@@ -5,10 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.framework.rodolfo.freire.git.library.model.AccessLevel;
 import org.framework.rodolfo.freire.git.library.model.Address;
 import org.framework.rodolfo.freire.git.library.model.Document;
 import org.framework.rodolfo.freire.git.library.model.Phone;
+import org.framework.rodolfo.freire.git.library.model.enums.AccessLevel;
 
 import java.util.Date;
 import java.util.List;

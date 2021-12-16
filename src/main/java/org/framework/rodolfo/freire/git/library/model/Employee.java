@@ -25,7 +25,6 @@ public class Employee {
 
     @Column(name = "gender")
     private String gender;
-    @Column(name = "department")
     @OneToOne
     private Department department;
     @Column(name = "occupation")
