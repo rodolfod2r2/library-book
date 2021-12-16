@@ -22,7 +22,8 @@ public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private long id;
-
+    @Column(name = "name")
+    private String name;
     @Column(name = "gender")
     private String gender;
     @OneToOne
